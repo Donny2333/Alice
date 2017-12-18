@@ -7,7 +7,6 @@ var bodyParser = require('body-parser')
 var lessMiddleware = require('less-middleware')
 
 var index = require('./routes/index')
-var users = require('./routes/users')
 
 var app = express()
 
