@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   if (sha === signature) {
     res.send(echostr + '')
   } else {
-    res.err(500)
+    res.status(500).json({ errMsg: 'sha is not equal to signature' })
   }
 })
 
