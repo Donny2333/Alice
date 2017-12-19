@@ -1,9 +1,13 @@
-var express = require('express')
-var sha1 = require('sha1')
-var config = require('../config')
-var router = express.Router()
+import express from 'express'
+import sha1 from 'sha1'
+import menus from '../config/menus'
+import {menuCreate} from "../service/api"
 
-router.get('/', function(req, res, next) {
+const router = express.Router()
+
+menuCreate(menus)
+
+router.get('/', function (req, res, next) {
   var token = config.wechat.token
   var timestamp = req.query.timestamp
   var nonce = req.query.nonce
@@ -15,7 +19,7 @@ router.get('/', function(req, res, next) {
   if (sha === signature) {
     res.send(echostr + '')
   } else {
-    res.status(500).json({ errMsg: 'sha is not equal to signature' })
+    res.status(500).json({errMsg: 'sha is not equal to signature'})
   }
 })
 
