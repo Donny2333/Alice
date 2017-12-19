@@ -28,7 +28,8 @@ const getToken = async () => {
 }
 
 const menuCreate = async options => {
-  await request(` https://api.weixin.qq.com/cgi-bin/menu/create?access_token=${getToken().access_token}`, options, 'POST')
+  const access_token = (await getToken()).access_token
+  request(` https://api.weixin.qq.com/cgi-bin/menu/create?access_token=${access_token}`, options, 'POST')
 }
 
 module.exports = {
