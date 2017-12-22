@@ -39,8 +39,17 @@ const msg = (req, res) => {
       const backTime = new Date().getTime()
 
       if (json.xml.MsgType === 'event') {
-        if (json.xml.EventKey === 'clickEvent') {
-          res.send(tools.getXml(json, backTime, '你戳我干啥...'))
+        switch (json.xml.EventKey) {
+          case 'subscribe':
+            res.send(tools.getXml(json, backTime, `终于等到你，还好我没放弃`))
+            break
+
+          case 'clickEvent':
+            res.send(tools.getXml(json, backTime, '你戳我干啥...'))
+            break
+
+          default:
+            break
         }
       } else if (json.xml.MsgType === 'text') {
         res.send(tools.getXml(json, backTime, `你发"${json.xml.Content}"过来干啥？`))
