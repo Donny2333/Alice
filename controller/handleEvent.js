@@ -31,7 +31,8 @@ const msg = (req, res) => {
   //接收结束
   req.on('end', () => {
     xml2js.parseString(xml, {explicitArray: false}, function (err, json) {
-      if (!err) {
+      if (err) {
+	console.log(err)
         console.log(json)
         return res.end()
       }
