@@ -39,12 +39,13 @@ const msg = (req, res) => {
       const backTime = new Date().getTime()
 
       if (json.xml.MsgType === 'event') {
-        switch (json.xml.EventKey) {
+        switch (json.xml.Event.toLowerCase()) {
           case 'subscribe':
+	    console.log(json.xml)
             res.send(tools.getXml(json, backTime, `终于等到你，还好我没放弃`))
             break
 
-          case 'clickEvent':
+          case 'click':
             res.send(tools.getXml(json, backTime, '你戳我干啥...'))
             break
 
