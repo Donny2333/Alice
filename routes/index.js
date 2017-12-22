@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const handleEvent = require('../controller/handleEvent')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const router = express.Router()
 
-module.exports = router;
+router.get('/', handleEvent.echo)
+
+router.post('/', handleEvent.msg)
+
+module.exports = router
