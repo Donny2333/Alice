@@ -1,6 +1,6 @@
 const xml2js = require('xml2js')
 const sha1 = require('sha1')
-const config = require("../config")
+const config = require('../config')
 const tools = require('../utils/tools')
 
 // 微信服务器连接响应
@@ -28,11 +28,11 @@ const msg = (req, res) => {
     xml += chunk
   })
 
-  //接收结束
+  // 接收结束
   req.on('end', () => {
     xml2js.parseString(xml, {explicitArray: false}, function (err, json) {
       if (err) {
-	console.log(err)
+        console.log(err)
         console.log(json)
         return res.end()
       }
@@ -41,7 +41,7 @@ const msg = (req, res) => {
       if (json.xml.MsgType === 'event') {
         switch (json.xml.Event.toLowerCase()) {
           case 'subscribe':
-	    console.log(json.xml)
+            console.log(json.xml)
             res.send(tools.getXml(json, backTime, `终于等到你，还好我没放弃`))
             break
 
