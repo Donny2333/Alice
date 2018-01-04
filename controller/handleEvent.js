@@ -32,8 +32,7 @@ const msg = (req, res) => {
   req.on('end', () => {
     xml2js.parseString(xml, {explicitArray: false}, function (err, json) {
       if (err) {
-        console.log(err)
-        console.log(json)
+        console.error(err)
         return res.end()
       }
       const backTime = new Date().getTime()
