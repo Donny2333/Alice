@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const lessMiddleware = require('less-middleware')
 
-const index = require('./routes/index')
+const index = require('./router/index')
 
 const app = express()
 

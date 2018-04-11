@@ -1,5 +1,5 @@
 {
-  "name": "contype",
+  "name": "alice",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
-    "eslint": "^4.13.1",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-html": "^4.0.1",
     "eslint-plugin-import": "^2.8.0",
